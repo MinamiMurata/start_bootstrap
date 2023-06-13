@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task name</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody class="col-md-8">
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.task_name %></td>
+        <td><%= task.content %></td>
+        <td><%= link_to '', task, class: "bi bi-twitter" %></td>
+        <td><%= link_to '', edit_task_path(task), class: "bi bi-file-earmark-check" %></td>
+        <td>
+          <%= link_to '', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "bi bi-trash" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '', new_task_path, class: "bi bi-trophy" %>
